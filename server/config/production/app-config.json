@@ -1,0 +1,24 @@
+{
+  "client": {
+    "storageDomain": ".prod-wilson.com"
+  },
+  "server": {
+    "deploy": {
+      "mode": "production",
+      "port": "8080",
+      "protocol": "http",
+      "env": "aws",
+      "path": "/opt/webapp",
+      "logLevel": "warn"
+    },
+    "caching": {
+      "maxAge": {
+        "assets":     172800000,
+        "appShell":   172800000,
+        "components": 172800000,
+        "bundles":    172800000,
+        "wilson":     172800000
+      }
+    }
+  }
+}

@@ -1,0 +1,507 @@
+/*
+ * Global Mixins - Optional Mixin Library provided by the Wilson Team
+ *
+ */
+
+ $vnd-prefix: -webkit,-moz,-o;
+
+
+//
+//  Sets the background image to given asset, along with commonly used properties
+//
+// @param  path    the root path of system assets or themed assets
+// @param  image   the path to the image within the base path
+// @param  offset  the position offset of the image, defaults to "center center", false to SKIP
+// @param  repeat  how to repeat the image; defaults to no-repeat, (options: "x", "y", or "xy"), false to SKIP
+// @param  color   (optional) the background color to set
+// @param  size    (optional) control background resizing adjustments
+//
+@mixin background-master($path:null, $image:null, $offset:null, $repeat:null, $color:null, $size:null) {
+
+  @if($path == null) { $path: $ASSET_PATH; }  // default
+
+  @if($image != null) {
+    $path: unquote($path);
+    $image: unquote($image);
+    background-image: url($path + $image);
+  }
+
+  @if($repeat == null) { background-repeat: no-repeat; }  // default action
+  @else if($repeat == "xy") { background-repeat: repeat; }
+  @else if($repeat == "x") { background-repeat: repeat-x; }
+  @else if($repeat == "y") { background-repeat: repeat-y; }
+  @else if($repeat == false) { } //noop
+  @else { background-repeat: unquote($repeat); } // user-defined
+
+  @if($offset == null) { background-position: center center; } // default
+  @else if($offset == false) { } //noop
+  @else { background-position: unquote($offset); } // user-defined
+
+  @if($color != null) { background-color: unquote($color); }
+
+  @if($size != null) {
+    $size: unquote($size);
+    @each $prefix in $vnd-prefix { #{$prefix}-background-size: $size; }
+    background-size: $size;
+  }
+
+}
+
+//
+// Conveninece wrappers for background-master()
+//
+@mixin background-base($image:null, $offset:null, $repeat:null, $color:null, $size:null) {
+  @include background-master($ASSET_PATH, $image, $offset, $repeat, $color, $size);
+}
+
+@mixin background-theme($image:null, $offset:null, $repeat:null, $color:null, $size:null) {
+  @include background-master($THEME_ASSET_PATH, $image, $offset, $repeat, $color, $size);
+}
+
+@mixin background-noimage($offset:null, $repeat:null, $color:null, $size:null) {
+  @include background-master(null, null, $offset, $repeat, $color, $size);
+}
+
+
+@mixin color-profile($foreground, $background) {
+  color: $foreground;
+  background-color: $background;
+}
+
+@mixin size($width:null, $height:null) {
+  @if($width != null) { width: $width; }
+  @if($height != null) { height: $height; }
+}
+
+@mixin pos-top-left($type, $top, $left) {
+  position: $type;
+  top: $top;
+  left: $left;
+}
+
+@mixin pos-top-right($type, $top, $right) {
+  position: $type;
+  top: $top;
+  right: $right;
+}
+
+@mixin pos-bottom-left($type, $bottom, $left) {
+  position: $type;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin pos-bottom-right($type, $bottom, $right) {
+  position: $type;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin text-shadow($shadow...) {
+  text-shadow: $shadow;
+}
+
+
+@mixin opacity($opacity) {
+  $opacity-percentage: ($opacity * 100);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacity-percentage + ")";
+  filter: "alpha(opacity=(" + $opacity-percentage + "))";
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+
+@mixin resize($resize) {
+  -moz-resize: $resize;
+  -webkit-resize: $resize;
+  resize: $resize;
+}
+
+@mixin box-sizing($box-sizing) {
+  -moz-box-sizing: $box-sizing;
+  -webkit-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+
+// Gradient Mixins
+@mixin gradient-vertical-3stop($color1, $stop1, $color2, $stop2, $color3, $stop3) {
+  background: $color1;
+  background: -ms-linear-gradient(top, $color1 $stop1, $color2 $stop2, $color3 $stop3);
+  background: -moz-linear-gradient(top, $color1 $stop1, $color2 $stop2, $color3 $stop3);
+  background: -o-linear-gradient(top, $color1 $stop1, $color2 $stop2, $color3 $stop3);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(($stop1 / 100%), $color1), color-stop(($stop2 / 100%), $color2), color-stop(($stop3 / 100%), $color3));
+  background: -webkit-linear-gradient(top, $color1 $stop1, $color2 $stop2, $color3 $stop3);
+  background: linear-gradient(to bottom, $color1 $stop1, $color2 $stop2, $color3 $stop3);
+}
+
+@mixin gradient-vertical-2stop($color1, $stop1, $color2, $stop2) {
+  background: $color1;
+  background: -ms-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background: -moz-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background: -o-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(($stop1 / 100%), $color1), color-stop(($stop2 / 100%), $color2));
+  background: -webkit-linear-gradient(top, $color1 $stop1, $color2 $stop2);
+  background: linear-gradient(to bottom, $color1 $stop1, $color2 $stop2);
+}
+
+@mixin gradient-vertical-1stop($color1, $color2) {
+  $color1 : unquote($color1);
+  $color2 : unquote($color2);
+  background: $color1; 
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(100%,$color2)); 
+  background: -webkit-linear-gradient(top, $color1 0%,$color2 100%); 
+  background: -o-linear-gradient(top, $color1 0%,$color2 100%); 
+  background: -ms-linear-gradient(top, $color1 0%,$color2 100%); 
+  background: linear-gradient(to bottom, $color1 0%,$color2 100%);
+}
+
+@mixin gradient-horizontal-1stop($color1, $color2) {
+  $color1 : unquote($color1);
+  $color2 : unquote($color2);
+  background: $color1;
+  background: -moz-linear-gradient(left, $color1, $color2), $color2;
+  background: -webkit-linear-gradient(left, $color1, $color2), $color2;
+  background: -webkit-gradient(left, $color1, $color2), $color2;
+  background: -ms-linear-gradient(linear, left top, right top, $color1, $color2), $color2;
+  background: -ms-linear-gradient(left, $color1 0%, $color2 100%);
+  background: linear-gradient(to right, $color1 0%,$color2 100%);
+}
+
+@mixin no-transitions() {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -ms-animation: $animation;
+  animation: $animation;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  animation-name: $name;
+}
+
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -ms-animation-duration: $duration;
+  animation-duration: $duration;
+}
+
+@mixin animation-timing-function($timingFunction) {
+  -webkit-animation-timing-function: $timingFunction;
+  animation-timing-function: $timingFunction;
+}
+
+@mixin animation-delay($delay) {
+  -webkit-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@mixin animation-direction($direction) {
+  -webkit-animation-direction: $direction;
+  animation-direction: $direction;
+}
+
+@mixin animation-play-state($playState) {
+  -webkit-animation-play-state: $playState;
+  animation-play-state: $playState;
+}
+
+@mixin animation-iteration-count($iterationCount) {
+  -webkit-animation-iteration-count: $iterationCount;
+  animation-iteration-count: $iterationCount;
+}
+
+@mixin full-animation($name, $duration, $timingFunction: ease, $delay: 0s, $iterationCount: 1, $direction: normal, $playState: running) {
+  @include animation-name($name);
+  @include animation-duration($duration);
+  @include animation-timing-function($timingFunction);
+  @include animation-delay($delay);
+  @include animation-iteration-count($iterationCount);
+  @include animation-direction($direction);
+  @include animation-play-state($playState);
+}
+
+@mixin transform-style($transform-style) {
+  -webkit-transform-style: $transform-style;
+  -o-transform-style: $transform-style;
+  -ms-transform-style: $transform-style;
+  -moz-transform-style: $transform-style;
+  transform-style: $transform-style;
+}
+
+@mixin perspective($perspective) {
+  perspective: $perspective;
+  -webkit-perspective: $perspective;
+}
+
+@mixin backface-visibility($backface-visibility) {
+  -webkit-backface-visibility: $backface-visibility;
+  -o-backface-visibility: $backface-visibility;
+  -ms-backface-visibility: $backface-visibility;
+  -moz-backface-visibility: $backface-visibility;
+  backface-visibility: $backface-visibility;
+}
+
+
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select; // Chrome, Safari
+  -moz-user-select: $select; // Firefox
+  -ms-user-select: $select; // IE10+
+
+  // Rules below not implemented in browsers yet
+  -o-user-select: $select;
+  user-select: $select;
+}
+
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+  -moz-appearance:    $appearance;
+  appearance:         $appearance;
+}
+
+@mixin button-outline-none {
+  &:focus {
+    outline:none;
+  }
+  &::-moz-focus-inner {
+    border:0;
+  }
+}
+
+@mixin caret($width, $height, $direction, $color) {
+  @if ($direction == 'up') {
+    border-top: none;
+    border-bottom: $width solid $color;
+    border-left: $height solid transparent;
+    border-right: $height solid transparent;
+  }
+
+  @if ($direction == 'down') {
+    border-bottom: none;
+    border-top: $width solid $color;
+    border-left: $height solid transparent;
+    border-right: $height solid transparent;
+  }
+
+  @if ($direction == 'left') {
+    border-left: none;
+    border-right: $width solid $color;
+    border-top: $height solid transparent;
+    border-bottom: $height solid transparent;
+  }
+
+  @if ($direction == 'right') {
+    border-right: none;
+    border-left: $width solid $color;
+    border-top: $height solid transparent;
+    border-bottom: $height solid transparent;
+  }
+}
+
+//
+// Use this mixin on input elements to hide the 'x'
+// clear button that is automatically added in IE10
+//
+@mixin hide-ie-clear-input {
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+@mixin wordwrap {
+  white-space: pre-wrap;      // CSS3 //
+  white-space: -moz-pre-wrap; // Firefox //
+  white-space: -pre-wrap;     // Opera <7 //
+  white-space: -o-pre-wrap;   // Opera 7 //
+  word-wrap: break-word;      // IE //
+}
+
+@mixin after-clearfix {
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
+  }
+}
+
+@mixin wrap-to-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+
+//
+//  @source: http://www.webtype.com/info/articles/fonts-weights/
+//  100    Extra Light or Ultra Light
+//  200    Light or Thin
+//  300    Book or Demi
+//  400    Normal or Regular
+//  500    Medium
+//  600    Semibold, Demibold
+//  700    Bold
+//  800    Black, Extra Bold or Heavy
+//  900    Extra Black, Fat, Poster or Ultra Black
+//
+
+
+
+//
+// Produces a set of font attributes for the given parameters
+// @param  family  (required) the typeface/family to use
+// @param  size    (required) the font size to use
+// @param  weight  (optional) the font weight to use, defaults to 400/normal
+// @param  height  (optional) the line height to use, defaults to not set
+// @param  style   (optional) the font variant/style to use, defaults to not set
+//
+@mixin font-master($family:0, $size:0, $weight:0, $height:0, $style:0)  {
+
+  // failsafes
+  @if ($family == 0) { $family: initial; }
+  @if ($size == 0) { $size: initial; }
+
+  // remap for convenience
+  @if      ($weight == 0)    { $weight:initial; }
+  @else if ($weight == 'light')  { $weight:200; }
+  @else if ($weight == 'normal') { $weight:400; }
+  @else if ($weight == 'bold')   { $weight:700; }
+
+  // main definition
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+
+  // overrides
+  @if ($height != 0) { line-height: $height; }
+  @if ($style != 0) { font-style: $style; } 
+}
+
+
+//
+// Convenience mixin to reference the primary font family
+//
+@mixin font-primary($size:0, $weight:0, $height:0, $style:0) {
+  @include font-master($font-primary-family, $size, $weight, $height, $style);
+}
+
+//
+// Convenience mixin to reference the secondary font family
+//
+@mixin font-secondary($size:0, $weight:0, $height:0, $style:0) {
+  @include font-master($font-secondary-family, $size, $weight, $height, $style);
+}
+
+
+@mixin warning-icon($color:#f89720, $content:null) {
+  @include size(15px, 15px);
+  @include border-radius(50%);
+  border: 2px solid $color;
+  color: $color;
+  line-height: 16px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  @if($content != null) {
+    &:before { content: $content; }
+  }
+}
+
+@mixin keyframe-animation($name) {
+  @-webkit-keyframes #{unquote($name)} { @content; }
+  @-moz-keyframes #{unquote($name)} { @content; }
+  @-o-keyframes #{unquote($name)} { @content; }
+  @keyframes #{unquote($name)} { @content; }
+}
+
+@mixin desaturate-greyscale() {
+
+  // these unquote wrappers are used to avoid a conflict with a grayscale() sass function
+  $gs1:   unquote("grayscale(1)");
+  $gs100: unquote("grayscale(100%)");
+
+  -webkit-filter: $gs1; -webkit-filter: $gs100; -moz-filter: $gs100;
+  filter: gray; filter: $gs100;
+  filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+
+
+
+
+
+@mixin anchor-edge($side, $amount) {
+
+  $side: unquote($side);
+
+  @if ($side == top) { top: $amount; }
+  @else { top: auto; }
+
+  @if ($side == right) { right: $amount; }
+  @else { right: auto; }
+
+  @if ($side == bottom) { bottom: $amount; }
+  @else { bottom: auto; }
+
+  @if ($side == left) { left: $amount; }
+  @else { left: auto; }
+
+}
+
+
+@mixin make-caret($direction, $color, $size) {
+  $direction: unquote($direction);
+
+  @include anchor-edge($direction, -$size);
+  border-color: transparent;
+
+  @if ($direction == top) { border-bottom-color: $color; }
+  @if ($direction == bottom) { border-top-color: $color; }
+  @if ($direction == left) { border-right-color: $color; }
+  @if ($direction == right) { border-left-color: $color; }
+ 
+}
+

@@ -1,0 +1,36 @@
+/**
+ * Base Global Constants
+ *
+ * All values should specify !default to notate that any already set
+ * value will not be overridden.
+ */
+
+
+/*************************************************
+ * Color Properties
+ ************************************************/
+$primary-color:           #F15B41 !default;
+$secondary-color:         #9E9E9E !default;
+
+$text-color-lighter:      lighten($text-color-primary, 15%) !default;
+$text-color-lightest:     lighten($text-color-primary, 30%) !default;
+
+// Alerts
+$alert-warning-color:     #F79800 !default;
+$alert-error-color:       #9F251B !default;
+$alert-info-color:        #0D7CAE !default;
+$alert-success-color:     #7EAE00 !default;
+$alert-opacity:           0.95 !default;
+
+/*************************************************
+ * Asset Properties
+ ************************************************/
+$ASSET_PATH: '/client/styles/images/' !default;
+$THEME_ASSET_PATH: $ASSET_PATH !default;
+
+/*************************************************
+ * Font Properties
+ ************************************************/
+$FONT_PATH: $THEME_ASSET_PATH + 'fonts/' !default;
+
+

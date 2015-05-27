@@ -1,0 +1,6 @@
+{
+  "client": {
+    "storageDomain": ".local-wilson.com",
+    "sessionKey": "sessionId"
+  }
+}

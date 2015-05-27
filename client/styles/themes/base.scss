@@ -1,0 +1,75 @@
+/**********************************************************************
+* Default Theme Proprties
+*
+* created by fabio.costa
+* copyright 2014 Hightail Inc. All Rights Reserved
+**********************************************************************/
+
+// Base Colors
+$hightail-orange: #F15B41;
+$tomato-red:      #A02526;
+$carrot-orange:   #F89720;
+$campbell-green:  #7EAD41;
+$bryant-blue:     #137EA9;
+$ht-dark-grey:    #3A383A;
+$ht-light-grey:   #9E9E9E;
+$ht-lighter-grey: #EBEBEB;
+
+
+/***********************
+* Color Definitions
+***********************/
+$primary-color:                         $hightail-orange;
+$secondary-color:                       $ht-light-grey;
+
+$text-color-primary:                    #3a383a;
+
+$app-bg-color:                          transparent;
+
+// Buttons
+$button-color:                          $hightail-orange;
+$button-color-hover:                    lighten($hightail-orange, 20%);
+$button-color-disabled:                 $ht-light-grey;
+
+// Alerts
+$alert-warning-color:                   #F79800;
+$alert-error-color:                     #F79800;
+$alert-info-color:                      #B9669F;
+$alert-success-color:                   #94BD59;
+$alert-opacity:                         0.95;
+
+//Pricing Tables
+$pricing-panel-header-color:            $campbell-green;
+$pricing-panel-background-color:        #FFFFFF;
+$pricing-panel-shadow-color:            #777777;
+
+// Nav Bar
+$navbar-bg-orange:      #f15b42;
+$navbar-bg-dk-orange:   #c24934;
+
+// Plan Panel
+$plan-panel-ampersand-bg-color:         $campbell-green;
+$plan-panel-border-color:               #c8c8c8;
+
+//Oops
+$oops-text-color: #FFF !default;
+$oops-link-text-color: #FFF !default;
+
+//404
+$_404-text-color: #FFF !default;
+$_404-link-text-color: #FFF !default;
+
+/***********************
+* Asset Definitions
+***********************/
+
+//Theme specific asset path
+$THEME_ASSET_PATH:            "/client/styles/themes/base/";
+
+/*************************************************
+ * Font Definitions
+ ************************************************/
+$FONT_PATH: $THEME_ASSET_PATH + 'fonts/';
+$font-primary-family: Verdana, Helvetica, Arial, sans-serif;
+$font-secondary-family: Verdana, Helvetica, Arial, sans-serif;
+

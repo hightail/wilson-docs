@@ -1,0 +1,32 @@
+/**********************************************************************
+* Spaces Theme Proprties
+*
+* created by fabio.costa
+* copyright 2014 Hightail Inc. All Rights Reserved
+**********************************************************************/
+
+@import "base.scss"; // all themes leverage the base theme
+
+// and now we override the base theme properties here:
+
+/***********************
+* Asset Definitions
+***********************/
+
+//Theme specific asset path
+$THEME_ASSET_PATH:            "/client/styles/themes/wilson/";
+
+/*************************************************
+ * Font Definitions
+ ************************************************/
+$FONT_PATH: $THEME_ASSET_PATH + 'fonts/';
+
+$font-primary-family: Verdana, Helvetica, Arial, sans-serif;
+$font-secondary-family: Verdana, Helvetica, Arial, sans-serif;
+
+@import "../core/_main.scss";
+
+
+/* begin custom skinning overrides... */
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html id="ng-app" ng-app="wilsonSeed" class="no-js lt-ie9 lt-ie8 lt-ie7" dir="{{dir}}"> <![endif]-->
+<!--[if IE 7]>         <html id="ng-app" ng-app="wilsonSeed" class="no-js lt-ie9 lt-ie8" dir="{{dir}}"> <![endif]-->
+<!--[if IE 8]>         <html id="ng-app" ng-app="wilsonSeed" class="no-js lt-ie9" dir="{{dir}}" xmlns:ng="http://angularjs.org"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html id="ng-app" ng-app="wilsonSeed" class="no-js" dir="{{dir}}"> <!--<![endif]-->
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="fragment" content="!" />
+
+    <meta name="robots" content="index,follow" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title ng-bind="page.title">Wilson Seed App</title>
+
+    <link rel="icon" type="image/png" href="/client/styles/themes/{{wilsonConfig.client.tags.brand}}/favicon.ico">
+
+    <base href="/" />
+
+    <link type="text/css" href="{{themeStylesheet}}" rel="stylesheet" />
+
+    <!-- build:js(.) /client/scripts/plugins.js -->
+    <script src="/client/src/lib/bower_components/jquery/jquery.js"></script>
+    <script src="/client/src/lib/bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="/client/src/lib/bower_components/lodash/dist/lodash.js"></script>
+    <script src="/client/src/lib/bower_components/angular/angular.js"></script>
+    <script src="/client/src/lib/bower_components/angular-route/angular-route.js"></script>
+    <script src="/client/src/lib/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/client/src/lib/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/client/src/lib/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/client/src/lib/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/client/src/lib/bower_components/javascript-state-machine/state-machine.min.js"></script>
+    <script src="/client/src/lib/bower_components/async/lib/async.js"></script>
+    <script src="/client/src/lib/bower_components/js-signals/dist/signals.min.js"></script>
+    <script src="/client/src/lib/bower_components/momentjs/moment.js"></script>
+    <script src="/client/src/lib/bower_components/moment-duration-format/lib/moment-duration-format.js"></script>
+    <script src="/client/src/lib/bower_components/i18next/i18next.js"></script>
+    <script src="/client/src/lib/bower_components/underscore.string/lib/underscore.string.js"></script>
+    <script src="/client/src/lib/bower_components/xregexp/src/xregexp.js"></script>
+    <script src="/client/src/lib/bower_components/xregexp/src/addons/unicode/unicode-base.js"></script>
+    <!-- endbuild -->
+
+  </head>
+
+  <body class="{{wilsonConfig.client.tags.language}} {{wilsonConfig.client.tags.brand}} {{wilsonConfig.client.tags.platform}} {{browserClasses}}">
+  {{#if browserSupported}}
+    <!-- Main View -->
+    <div ng-view class="page"></div>
+
+    <!-- Wilson -->
+    <script type="text/javascript" src="/wilson/{{wilsonConfig.client.app.version}}/config/{{wilsonConfig.client.app.connectionFilters}}"></script>
+    <script type="text/javascript" src="/wilson/{{wilsonConfig.client.app.version}}/client.wilson{{#if production}}.min{{/if}}.js"></script>
+    <script type="text/javascript" src="/wilson/{{wilsonConfig.client.app.version}}/bundle"></script>
+    <script type="text/javascript" src="/client/src/services/IRouteService.js"></script>
+
+
+    <!-- build:js(.) /client/scripts/scripts.js -->
+
+    <!-- Behaviors -->
+    <script type="text/javascript" src="/client/src/behaviors/event-bus/event-bus.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Hightail App -->
+    <script type="text/javascript" src="/client/app.js"></script>
+
+  {{else}}
+
+    <!-- Unsupported Browser -->
+    <div class="page unsupported">
+      <div class="invalid-content">
+        <h1>You&apos;re using an older unsupported browser</h1>
+        <p><a href="http://browsehappy.com/?locale=en">Update your browser here</a></p>
+      </div>
+    </div>
+  {{/if}}
+
+  </body>
+
+</html>

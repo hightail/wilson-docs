@@ -1,2 +1,2 @@
-# wilson-docs
-Wilson documentation site
+# Wilson-Docs
+Documentation site for Wilson

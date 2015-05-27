@@ -1,0 +1,16 @@
+/*
+  ===========================================
+   Main.scss
+  ===========================================
+*/
+
+// external/vendor scss plugins, helpers, etc..
+// @import "external/jack.css";
+//@import "external/jquery.ui.css"; //etc...
+
+// these should produce NO CSS code on their own
+@import "main/_constants.scss";
+@import "main/_mixins.scss";
+
+// the following file is auto-generated:
+@import "__components.scss";

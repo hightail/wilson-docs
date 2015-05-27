@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "component": "welcome",
+      "title": "Welcome to Wilson",
+      "options": {}
+    },
+    {
+      "path": "/404",
+      "component": "404",
+      "title": "Wilson | Not Found",
+      "options": {}
+    },
+    {
+      "path": null,
+      "title": "Wilson | Not Found",
+      "component": "404",
+      "options": {
+        "forward": "/404"
+      }
+    }
+  ]
+}

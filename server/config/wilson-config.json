@@ -1,0 +1,26 @@
+{
+  "client": {
+    "app": {
+      "name": "Wilson Seed",
+      "updateInterval": "1 hours",
+      "mountpath": "/wilson"
+    }
+  },
+  "server" : {
+    "projectPaths": {
+      "root": "."
+    },
+    "dependencies": {
+      "core": []
+    },
+    "tags": {
+      "brand":        10,
+      "device":       9,
+      "platform":     8,
+      "browser":      7,
+      "language":     6,
+      "locale":       5,
+      "pref-locale":  4
+    }
+  }
+}

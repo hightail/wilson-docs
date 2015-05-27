@@ -1,0 +1,22 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# ignore IDEA files
+/.idea
+*.iml
+
+# Generated Files
+*.DS_Store
+*.swap
+
+# ignore distributable files
+dist
+
+# ignore node_modules
+node_modules
+client/src/lib/bower_components
+
+# ignore project generated files
+client/styles/core/__components.scss
+client/styles/exports
+server/.cache
+

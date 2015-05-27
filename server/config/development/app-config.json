@@ -1,0 +1,15 @@
+{
+  "client": {
+    "storageDomain": ".local-wilson.com"
+  },
+  "server": {
+    "deploy": {
+      "mode": "development",
+      "port": "3000",
+      "protocol": "http",
+      "env": "dev",
+      "path": ".",
+      "logLevel": "info"
+    }
+  }
+}
