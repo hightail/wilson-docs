@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install -g bower
+- npm install -g grunt-cli
+install:
+- npm install
+- grunt build
+after_success:
+- cd dist/ && tar -zcf ../wilson-docs-dist-$TRAVIS_BRANCH.tar.gz . && cd ..
+deploy:
+  provider: releases
+  file: wilson-docs-dist-$TRAVIS_BRANCH.tar.gz
+  skip_cleanup: true
+  on:
+    all_branches: true
+    tags: true
+  api-key:
+    secure: ZbEhme9Q+iG7ZOejAqBDrBeK4sjB6JHnnthByz0wy6CoombKaY2BPllwiJfZl9jOt7Uz2dMX5t2UFq2sC/IoPfP7yAwJ1fi3FsUSklx/YDdzsDhCVUKhnZ19OnKKbmbkohbU8xz3vOPod9Zedj6WSS1ne4TEsCPnurkeLwhFZ24=
+notifications:
+  hipchat:
+    rooms:
+    - C078QI8sp1gTzi4y0nUP64LiQz7Z26WCERJFhmNS@842637
+    template:
+    - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}
+      (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+    format: html
