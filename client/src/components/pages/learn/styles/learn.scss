@@ -11,13 +11,22 @@
   .resources {
     @include grid;
 
+    > h3 {
+      margin: 40px 0px 8px 0px;
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid #e9e9e9;
+      text-align: center;
+      font-weight: 200;
+    }
+
     > div {
       @include grid-row;
       //position: relative;
       font-weight: 700;
 
       .topics {
-        @include pos-top-left(absolute, 340px, 0px);
+        @include pos-top-left(absolute, 302px, 0px);
         width: 100%;
         z-index: 10;
 
@@ -100,13 +109,25 @@
               margin-top: 40px;
             }
 
+            .video-wrapper {
+              @include box-shadow(0px 0px 2px 1px #4F4F4F);
+              @include border-radius(5px);
+              width: 580px;
+              height: 362px;
+              margin: 20px auto;
+              overflow: hidden;
+              text-align: center;
+
+              > iframe { display: block; }
+            }
+
             .block {
               @include border-radius(5px);
               background-color: #F9F9F9;
               border: 1px dashed #c5c5c5;
 
               h5 {
-                margin: 10px 20px;
+                margin: 20px;
                 font-weight: 700;
                 font-size: 14px;
 

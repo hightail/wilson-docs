@@ -51,12 +51,12 @@
 
       .video-wrapper {
         @include box-shadow(0px 0px 2px 1px #4F4F4F);
+        @include border-radius(5px);
         width: 820px;
         height: 510px;
         margin: 20px auto;
         text-align: center;
         overflow: hidden;
-        border-radius: 5px;
 
         > iframe { display: block; }
       }

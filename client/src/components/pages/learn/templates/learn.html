@@ -13,8 +13,11 @@
   <div class="content transition fade">
 
     <div class="resources">
+
+      <h3>{{__ 'Checkout the videos and examples below to start developing your Wilson app.'}}</h3>
+
       <div>
-        <div class="topics" ht-fixed-scroll="300" offset-top="40">
+        <div class="topics" ht-fixed-scroll="257" offset-top="100" offset-bottom="100">
           <div class="backdrop">
             <div>
               <div class="menu">
@@ -28,30 +31,29 @@
         </div>
 
         <div class="materials">
-
           <div>
-            <div class="section">
-              <h3>{{__ 'Before using Wilson, you will need to get it setup on your machine. If you want to just browse around, be our guest. To learn how to get everything setup go'}} <a href="/install">here</a>.</h3>
-            </div>
-          </div>
-
-          <div>
-            <div class="section start">
-              <h4>{{__ 'Starting Wilson'}}</h4>
+            <div class="section pages">
+              <h4>{{__ 'Creating Pages'}}</h4>
 
               <div class="block">
-                <p class="note">{{__ 'Once Wilson is installed, you can run it using grunt from the commandline. There are two modes for running wilson:'}} <span class="emphasis">{{__ 'Development and Production'}}</span>.</p>
 
-                <h5>{{__ 'Development Mode'}}</h5>
-                <p class="sub-block code">grunt server</p>
-                <p class="sub-block">Running wilson in development mode will start the server as well as a watcher task for the project. This is a blocking process that will stay open in the console and detect changes to the project. Any new changes will force an on-the-fly rebuild and refresh of the server, allowing you make changes fast and have them immediately available. Please note that in development mode, the server runs on port 3000.</p>
+                <h5>{{__ 'Video Walkthrough'}}</h5>
+                <div class="video-wrapper">
+                  <iframe name='quickcast' src='http://quick.as/embed/pq6phdz0b' scrolling='no' frameborder='0' width='100%' allowfullscreen></iframe><script src='http://quick.as/embed/script/1.60'></script>
+                </div>
 
-                <h5>{{__ 'Production Mode'}}</h5>
-                <p class="sub-block code">sudo grunt server:dist</p>
-                <p class="sub-block">When running in production mode, the watch task will not run and therefore the process will not block. The server will be started in the background and the command will complete. In order to stop the server in production mode run the following command:</p>
-                <p class="sub-block code">sudo grunt stopServer</p>
-                <p class="sub-block">Note: in production mode, the server runs on port 8080.</p>
+                <!--<p class="note">{{__ 'Pages are simple to create in Wilson'}}</p>-->
 
+                <!--<h5>{{__ 'Development Mode'}}</h5>-->
+                <!--<p class="sub-block code">grunt server</p>-->
+                <!--<p class="sub-block">Running wilson in development mode will start the server as well as a watcher task for the project. This is a blocking process that will stay open in the console and detect changes to the project. Any new changes will force an on-the-fly rebuild and refresh of the server, allowing you make changes fast and have them immediately available. Please note that in development mode, the server runs on port 3000.</p>-->
+
+                <!--<h5>{{__ 'Production Mode'}}</h5>-->
+                <!--<p class="sub-block code">sudo grunt server:dist</p>-->
+                <!--<p class="sub-block">When running in production mode, the watch task will not run and therefore the process will not block. The server will be started in the background and the command will complete. In order to stop the server in production mode run the following command:</p>-->
+                <!--<p class="sub-block code">sudo grunt stopServer</p>-->
+                <!--<p class="sub-block">Note: in production mode, the server runs on port 8080.</p>-->
+                <!-- -->
               </div>
             </div>
 
@@ -66,10 +68,13 @@
                 <p class="note">{{__ 'In Wilson there are two categories of components: building-blocks and pages. Building-blocks are exactly what they sound like, components used to build pages or other building-block components. Pages are components explicitly used to represent a top-level page and they are the only components that can be used as route targets.'}}</p>
 
                 <h5>{{__ 'Creating a Component'}}</h5>
-                <p class="sub-block code">yo component</p>
+                <p class="sub-block code">yo wilson:component</p>
                 <p class="sub-block">Creating a component is as easy as running this command and following the prompts. This process will create all necessary directories and files for a new empty component.</p>
 
-                <h5 class="sub">{{__ 'Try out Component Development Right Now in Plunker' }} <a href="http://embed.plnkr.co/abXGFGDtNRVK87b9efOe/preview" target="_blank">Try It HERE</a>!</h5>
+                <h5 class="sub">{{__ 'Try out Component Development Right Now in Plunker' }}</h5>
+                <div class="video-wrapper">
+                  <iframe name='quickcast' src='http://embed.plnkr.co/abXGFGDtNRVK87b9efOe' scrolling='no' frameborder='0' width='100%' allowfullscreen></iframe>
+                </div>
 
               </div>
             </div>

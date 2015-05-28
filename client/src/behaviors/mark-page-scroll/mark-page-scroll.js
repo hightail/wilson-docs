@@ -17,29 +17,23 @@
  */
 'use strict';
 
-angular.wilson.behavior('mark-page-scroll',
+angular.wilson.behavior('mark-page-scroll', function() {
+  return {
+    restrict: 'A',
 
-  // Behavior Definition
-  function() {
-  
-    return {
-      restrict: 'A',
+    link: function($scope, $element, $attrs, controller) {
+      var win = $(window);
+      var startThreshold = parseInt($attrs.htMarkPageScroll, 10) || 0;
+      win.on('scroll', function() {
+        var currentScroll = win.scrollTop();
+        if (currentScroll > startThreshold) {
+          $element.addClass('scroll-active');
+        } else {
+          $element.removeClass('scroll-active');
+        }
+      });
 
-      link: function($scope, $element, $attrs, controller) {
-        var win = $(window);
-        var startThreshold = parseInt($attrs.htMarkPageScroll, 10) || 0;
-        win.on('scroll', function() {
-          var currentScroll = win.scrollTop();
-          if (currentScroll > startThreshold) {
-            $element.addClass('scroll-active');
-          } else {
-            $element.removeClass('scroll-active');
-          }
-        });
-
-      }
-    };
-
-  }
-);
+    }
+  };
+});
 

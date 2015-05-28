@@ -22,7 +22,7 @@ angular.wilson.component('learn', {
       var controller = this;
 
       $scope.menuOptions = [
-        { name: 'Starting Wilson',  section: 'start'        },
+        { name: 'Pages',            section: 'pages'        },
         { name: 'Components',       section: 'components'   },
         { name: 'Routing',          section: 'routing'      },
         { name: 'Behaviors',        section: 'behaviors'    },

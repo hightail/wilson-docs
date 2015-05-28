@@ -17,6 +17,7 @@
   border-top: 5px solid #990E0E;
   margin-top: 15px;
   position: relative;
+  z-index: 50;
 
   .inner {
     @include grid;
