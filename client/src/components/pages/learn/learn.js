@@ -22,15 +22,9 @@ angular.wilson.component('learn', {
       var controller = this;
 
       $scope.menuOptions = [
-        { name: 'Pages',            section: 'pages'        },
-        { name: 'Components',       section: 'components'   },
-        { name: 'Routing',          section: 'routing'      },
-        { name: 'Behaviors',        section: 'behaviors'    },
-        { name: 'Filters',          section: 'filters'      },
-        { name: 'Services',         section: 'services'     },
-        { name: 'Parsers',          section: 'parsers'      },
-        { name: 'Guides',           section: 'guides'       },
-        { name: 'Theming',          section: 'theming'      }
+        { name: 'Pages',            section: 'pages'              },
+        { name: 'Components',       section: 'components'         },
+        { name: 'Angularjs',          section: 'other-resources'    }
       ];
     }
   ]

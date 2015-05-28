@@ -10,12 +10,12 @@
 
   .resources {
     @include grid;
+    margin: 0 auto 50px auto;
 
     > h3 {
       margin: 40px 0px 8px 0px;
       padding-bottom: 20px;
 
-      border-bottom: 1px solid #e9e9e9;
       text-align: center;
       font-weight: 200;
     }
@@ -40,8 +40,10 @@
           .menu {
             @include grid-column(4, 12);
             @include border-radius(5px);
-            background-color: #F9F9F9;
-            border: 1px dashed #C5C5C5;
+            background-color: rgba(140,33,32,0.87);
+            color: white;
+            border: 3px solid rgb(124, 1, 1);
+            font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
 
             h4 {
               margin: 15px 20px 10px 20px;
@@ -56,7 +58,7 @@
               padding: 0px 20px;
 
               li {
-                @include transition(background-color .35s ease);
+                @include transition(background-color .125s ease-in-out, color .125s ease-in-out);
                 @include border-radius(5px);
                 cursor: pointer;
                 font-size: 14px;
@@ -64,12 +66,10 @@
                 line-height: 26px;
                 padding-left: 10px;
                 margin-bottom: 8px;
-                color: #5d0906;
-
 
                 &:hover {
-                  @include transition(background-color .35s ease);
                   background-color: #E2E2E2;
+                  color: #5d0906;
                 }
               }
             }
@@ -109,6 +109,22 @@
               margin-top: 40px;
             }
 
+            ul {
+              list-style-type: none;
+              line-height: 22px;
+
+              li {
+                font-size: 12px;
+                font-weight: 200;
+
+                > a {
+                  font-size: 14px;
+                  font-weight: 400;
+                  color: #5d0906;
+                }
+              }
+            }
+
             .video-wrapper {
               @include box-shadow(0px 0px 2px 1px #4F4F4F);
               @include border-radius(5px);
@@ -142,8 +158,9 @@
 
               p {
                 margin: 20px;
-                font-size: 14px/22px;
+                font-size: 14px;
                 font-weight: 200;
+                line-height: 22px;
 
                 a { color: #3a383a; }
 
