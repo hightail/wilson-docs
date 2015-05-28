@@ -1,6 +1,6 @@
 {
   "name": "wilson-docs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "angular": "1.3.10",
     "angular-route": "1.3.10",
