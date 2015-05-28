@@ -1,0 +1,72 @@
+/*************************************************
+ * DocsComponent Properties
+ ************************************************/
+// Default Properties for the docs component go here
+
+/*************************************************
+ * DocsComponent Styles
+ ************************************************/
+.ht-docs {
+  .content {
+    @include grid;
+
+    > div {
+      @include grid-row;
+      margin-top: 40px;
+      margin-bottom: 40px;
+
+      h3 {
+        @include grid-column(16);
+        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px dashed #CFCDCD;
+        border-top: 1px dashed #CFCDCD;
+      }
+
+      .info {
+        @include grid-column(16);
+
+        p {
+          text-indent: 25px;
+          font-size: 14px/24px;
+
+          a {
+            color: #3a383a;
+          }
+
+          &.code {
+            @include border-radius(5px);
+            border: 1px dashed #CCCCCC;
+            background-color: #F7F7F7;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            padding: 15px;
+            font-family: courier, 'Trebuchet MS', serif;
+          }
+        }
+
+        ul {
+          margin: 0px;
+          padding: 0px;
+          list-style-type: none;
+
+          li {
+            padding: 10px;
+            font-size: 14px;
+
+            a {
+              color: #3a383a;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

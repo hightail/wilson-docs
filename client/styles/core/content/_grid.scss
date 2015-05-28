@@ -1,0 +1,65 @@
+/*!
+ * Bootstrap v2.3.2 Grid System Ported to SASS Mixins
+ *
+ * Copyright 2013 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ *
+ * Ported to SASS by hunter.novak@hightail.com
+ */
+
+/*************************************************
+ * Grid Properties
+ ************************************************/
+$grid-width: 940px !default;
+$grid-column-width: 40px !default;
+$grid-column-margin: 20px !default;
+
+
+/*************************************************
+ * Grid Mixins
+ ************************************************/
+@mixin grid {
+  width: $grid-width;
+  margin: 0 auto;
+}
+
+@mixin grid-row {
+  margin-left: -($grid-column-margin);
+  *zoom: 1;
+
+  &:before, &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin grid-column($column-span, $column-offset: 0) {
+  float: left;
+  min-height: 1px;
+  margin-left: $grid-column-margin;
+
+  // Column Width
+  $total-column-width: ($grid-column-width + $grid-column-margin);
+  width: (($column-span * $total-column-width) - $grid-column-margin);
+
+  // Offset
+  @if ($column-offset > 0) {
+    margin-left: (($column-offset * $total-column-width) + $grid-column-margin);
+  }
+
+  .hide { display: none; }
+  .pull-right { float: right; }
+}
+
+@mixin grid-fill-column($column-span, $paddingAdjustment: 0) {
+  $total-column-width: ($grid-column-width + $grid-column-margin);
+  width: (($column-span * $total-column-width) - $grid-column-margin) - $paddingAdjustment;
+}

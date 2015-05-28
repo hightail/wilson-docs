@@ -1,0 +1,45 @@
+/**
+ * Core Banner Properties and Mixin Styles
+ *
+ * Copyright(c) 2013 Hightail Inc.
+ */
+
+
+/*************************************************
+ * Banner Properties
+ ************************************************/
+
+
+/*************************************************
+ * Banner Mixins and Styles
+ ************************************************/
+.banner {
+  @include background-base('backgrounds/bg-white.png');
+  @include box-shadow(0px 0px 2px #494949);
+  background-position: 0px -300px;
+  background-repeat: repeat;
+
+  height: 120px;
+  margin-top: 55px;
+
+  background-color: white;
+  color: #741C1D;
+
+  border-bottom: 5px solid #863334;
+
+
+  .title {
+    @include grid;
+
+    > div {
+      @include grid-row;
+
+      h1 {
+        @include grid-column(16);
+        text-align: center;
+        font-size: 48px;
+        font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
+      }
+    }
+  }
+}

@@ -21,8 +21,84 @@ $THEME_ASSET_PATH:            "/client/styles/themes/wilson/";
  ************************************************/
 $FONT_PATH: $THEME_ASSET_PATH + 'fonts/';
 
-$font-primary-family: Verdana, Helvetica, Arial, sans-serif;
-$font-secondary-family: Verdana, Helvetica, Arial, sans-serif;
+/**
+ * Font Definition: "Verb"
+ */
+$font-label-verb: 'Verb';
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-extralight/verb-extralight.eot');
+  src: url($FONT_PATH + 'verb-extralight/verb-extralight.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-extralight/verb-extralight.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-extralight/verb-extralight.woff') format('woff'),
+  url($FONT_PATH + 'verb-extralight/verb-extralight.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-light/verb-light.eot');
+  src: url($FONT_PATH + 'verb-light/verb-light.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-light/verb-light.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-light/verb-light.woff') format('woff'),
+  url($FONT_PATH + 'verb-light/verb-light.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-regular/verb-regular.eot');
+  src: url($FONT_PATH + 'verb-regular/verb-regular.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-regular/verb-regular.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-regular/verb-regular.woff') format('woff'),
+  url($FONT_PATH + 'verb-regular/verb-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-medium/verb-medium.eot');
+  src: url($FONT_PATH + 'verb-medium/verb-medium.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-medium/verb-medium.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-medium/verb-medium.woff') format('woff'),
+  url($FONT_PATH + 'verb-medium/verb-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-regular-bold/verb-regular-bold.eot');
+  src: url($FONT_PATH + 'verb-regular-bold/verb-regular-bold.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-regular-bold/verb-regular-bold.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-regular-bold/verb-regular-bold.woff') format('woff'),
+  url($FONT_PATH + 'verb-regular-bold/verb-regular-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-regular-italic/verb-regular-italic.eot');
+  src: url($FONT_PATH + 'verb-regular-italic/verb-regular-italic.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-regular-italic/verb-regular-italic.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-regular-italic/verb-regular-italic.woff') format('woff'),
+  url($FONT_PATH + 'verb-regular-italic/verb-regular-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: $font-label-verb;
+  src: url($FONT_PATH + 'verb-medium/verb-medium.eot');
+  src: url($FONT_PATH + 'verb-medium/verb-medium.eot?#iefix') format('embedded-opentype'),
+  url($FONT_PATH + 'verb-medium/verb-medium.svg#ywftsvg') format('svg'),
+  url($FONT_PATH + 'verb-medium/verb-medium.woff') format('woff'),
+  url($FONT_PATH + 'verb-medium/verb-medium.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+$font-primary-family: 'Verb', Tahoma, Verdana;
+$font-secondary-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 
 @import "../core/_main.scss";
 

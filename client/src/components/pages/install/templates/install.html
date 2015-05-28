@@ -1,0 +1,104 @@
+<div class="ht-install" ht-track-page>
+
+  <ht-header></ht-header>
+
+  <div class="banner">
+    <div class="title">
+      <div>
+        <h1>{{__ "Get Started"}}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="content transition fade">
+    <div class="prereqs">
+      <div class="title">
+        <h2>{{__ 'Get started with Wilson in 5 minutes'}}</h2>
+      </div>
+      <div>
+        <p>{{__ 'Watch the setup video and follow the steps below to get up and running.'}}</p>
+      </div>
+    </div>
+
+    <div class="install-steps get-started-video">
+      <div class="title">
+        <h3>Video Walkthrough</h3>
+        <div class="icons wilson"><i class="wilson"></i></div>
+      </div>
+
+      <div class="video-wrapper">
+        <iframe name='quickcast' src='http://quick.as/embed/3jvdubv46' scrolling='no' frameborder='0' width='100%' allowfullscreen></iframe><script src='http://quick.as/embed/script/1.60'></script>
+      </div>
+    </div>
+
+    <div class="install-steps node">
+      <div class="title">
+        <h3><strong>Step 1:&nbsp;&nbsp;</strong>{{__ 'Install Node, Grunt and Yeoman'}}</h3>
+        <div class="icons"><i class="node"></i></div>
+      </div>
+      <div>
+        <div class="step">
+          <p>{{__ 'The easiest way to get Node fast is by using Homebrew. Find it'}} <a href="http://brew.sh/" target="_blank">here</a>.</p>
+          <p>{{__ 'Once you have brew, run these commands:'}}</p>
+          <div class="cmd">
+            <p class="code">brew install node</p>
+            <p class="code">npm install -g grunt-cli</p>
+            <p class="code">npm install -g yo</p>
+            <p class="code">npm install -g hightail/generator-wilson</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-steps wilson">
+      <div class="title">
+        <h3><strong>Step 2:&nbsp;&nbsp;</strong>{{__ 'Get the Wilson Seed App'}}</h3>
+        <div class="icons wilson"><i class="wilson"></i></div>
+      </div>
+      <div>
+        <div class="step">
+          <p>{{__ 'Now you need to get the Wilson seed application. Just run this in your terminal:'}}</p>
+          <div class="cmd">
+            <p class="code">curl -L https://github.com/hightail/wilson-seed/archive/1.0.2.zip > wilson-seed.zip; unzip wilson-seed.zip; rm wilson-seed.zip;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-steps git">
+      <div class="title">
+        <h3><strong>Step 3:&nbsp;&nbsp;</strong>{{__ 'Install Wilson NPM Modules'}}</h3>
+        <div class="icons"><i class="git"></i></div>
+      </div>
+      <div>
+        <div class="step">
+          <p>{{__ 'Next we need to get Wilson ready to run. Navigate in terminal into the resulting directory and run this:'}}</p>
+          <div class="cmd">
+            <p class="code">npm install</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-steps wilson">
+      <div class="title">
+        <h3><strong>Step 4:&nbsp;&nbsp;</strong>{{__ 'Run your Wilson Web Application'}}</h3>
+        <div class="icons wilson"><i class="wilson"></i></div>
+      </div>
+      <div>
+        <div class="step">
+          <p>{{__ 'Wilson should now be ready to go, so let\'s start the web server:'}}</p>
+          <div class="cmd">
+            <p class="code">grunt develop</p>
+          </div>
+          <p class="note">Note: You can also run &ldquo;<strong>grunt develop:quick</strong>&rdquo; to startup much faster (bypasses initial dependency check.)</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <ht-footer></ht-footer>
+
+</div>

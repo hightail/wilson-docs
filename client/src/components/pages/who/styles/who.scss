@@ -1,0 +1,55 @@
+/*************************************************
+ * WhoComponent Properties
+ ************************************************/
+// Default Properties for the who component go here
+
+/*************************************************
+ * WhoComponent Styles
+ ************************************************/
+.ht-who {
+
+  .content {
+    @include grid;
+
+    > p {
+      text-align: center;
+      margin: 40px 0px;
+      font-size: 20px;
+      font-weight: 200;
+    }
+
+    .creators {
+      text-align: center;
+
+      .author {
+        @include border-radius(5px);
+        @include box-shadow(0px 0px 5px #666666);
+        display: inline-block;
+        position: relative;
+
+        height: 200px;
+        width: 160px;
+        margin: 20px 45px;
+        text-align: center;
+
+
+        h4 {
+          @include opacity(.4);
+          position: absolute;
+          top: -35px; left: 5px;
+
+          color: rgb(98, 10, 10);
+          font-size: 30px;
+          font-weight: 100;
+          text-transform: uppercase;
+        }
+
+        &.hunter  { @include background-base('logos/hnovak-small.png');   }
+        &.justin  { @include background-base('logos/jfiedler-small.png'); }
+        &.dan     { @include background-base('logos/dnguyen-small.png');  }
+      }
+
+    }
+
+  }
+}

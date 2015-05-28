@@ -1,0 +1,86 @@
+/* universal mode strategy */
+
+html, body { margin:0; padding:0; }
+
+/* font family needs to be specified for body and form elements */
+html, body, button, input, select, textarea, optgroup { font-family: $font-primary-family; -webkit-font-smoothing: antialiased; }
+
+body {
+  position: relative;
+  font-size: 1em;
+}
+
+br { clear:both; }
+
+
+/* this element now becomes the scrollable "page" */
+
+body {
+
+  > div[ng-view] { -my-notes: some-viewport; }
+
+}
+
+
+
+body.page-transition-fade {
+  > div.page {
+    @include opacity(1);
+
+    &.ng-enter, &.ng-leave {
+      @include transition(all .5s ease);
+    }
+
+    &.ng-enter         { @include opacity(0); position: fixed;  top: 0; left: 0; bottom: 0; right: 0;              }
+    &.ng-enter-active  { @include opacity(1); position: static; top: auto; left: auto; bottom: auto; right: auto;  }
+    &.ng-leave         { @include opacity(1); position: static; top: auto; left: auto; bottom: auto; right: auto;  }
+    &.ng-leave-active  { @include opacity(0); position: fixed;  top: 0; left: 0; bottom: 0; right: 0;              }
+  }
+}
+
+body.page-transition-pop {
+  > div.page {
+    &.ng-enter, &.ng-leave {
+      @include transition(all .5s ease);
+    }
+
+    &.ng-enter         { @include transform(scale(0)); }
+    &.ng-enter-active  { @include transform(scale(1)); }
+    &.ng-leave         { @include transform(scale(1)); }
+    &.ng-leave-active  { @include transform(scale(1)); }
+  }
+}
+
+body.page-transition-flip-y {
+
+  // work in progress....
+  // to finish it, we'll probably need to setup keyframes to reliably control the transition states
+  // we need to ensure that the old ng-leave is totally out of view 
+  // before we bring the upcoming page into its ng-enter state
+
+  -webkit-perspective: 1000px;
+     -moz-perspective: 1000px;
+          perspective: 1000px;
+
+  > div.page {
+    @include opacity(1);
+    @include transform( rotateY(0) );
+
+    &.ng-enter {
+      @include transition(all .4s 0.5s ease);
+    }
+
+    &.ng-leave {
+      @include transition(all .4s ease);
+    }
+
+
+    &.ng-enter         { @include opacity(0); @include transform( rotateY(-90deg) ); }
+    &.ng-enter-active  { @include opacity(1); @include transform( rotateY(0) ); }
+
+    &.ng-leave         { @include opacity(1); @include transform( rotateY(0) ); }
+    &.ng-leave-active  { @include opacity(0); @include transform( rotateY(90deg) ); }
+  }
+
+
+}

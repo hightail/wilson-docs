@@ -1,0 +1,85 @@
+<div class="ht-learn" ht-track-page>
+
+  <ht-header></ht-header>
+
+  <div class="banner">
+    <div class="title">
+      <div>
+        <h1>{{__ "Learn"}}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="content transition fade">
+
+    <div class="resources">
+      <div>
+        <div class="topics" ht-fixed-scroll="300" offset-top="40">
+          <div class="backdrop">
+            <div>
+              <div class="menu">
+                <h4>Topics</h4>
+                <ul>
+                  <li ng-repeat="entry in menuOptions" ht-scroll-to=".section.[[entry.section]]">[[entry.name]]</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="materials">
+
+          <div>
+            <div class="section">
+              <h3>{{__ 'Before using Wilson, you will need to get it setup on your machine. If you want to just browse around, be our guest. To learn how to get everything setup go'}} <a href="/install">here</a>.</h3>
+            </div>
+          </div>
+
+          <div>
+            <div class="section start">
+              <h4>{{__ 'Starting Wilson'}}</h4>
+
+              <div class="block">
+                <p class="note">{{__ 'Once Wilson is installed, you can run it using grunt from the commandline. There are two modes for running wilson:'}} <span class="emphasis">{{__ 'Development and Production'}}</span>.</p>
+
+                <h5>{{__ 'Development Mode'}}</h5>
+                <p class="sub-block code">grunt server</p>
+                <p class="sub-block">Running wilson in development mode will start the server as well as a watcher task for the project. This is a blocking process that will stay open in the console and detect changes to the project. Any new changes will force an on-the-fly rebuild and refresh of the server, allowing you make changes fast and have them immediately available. Please note that in development mode, the server runs on port 3000.</p>
+
+                <h5>{{__ 'Production Mode'}}</h5>
+                <p class="sub-block code">sudo grunt server:dist</p>
+                <p class="sub-block">When running in production mode, the watch task will not run and therefore the process will not block. The server will be started in the background and the command will complete. In order to stop the server in production mode run the following command:</p>
+                <p class="sub-block code">sudo grunt stopServer</p>
+                <p class="sub-block">Note: in production mode, the server runs on port 8080.</p>
+
+              </div>
+            </div>
+
+            <div class="section components">
+              <h4>{{__ 'Components'}}</h4>
+
+              <div class="block">
+                <p class="note">{{__ 'Components are the core of your Wilson application. They are the pieces that will be used to construct your experiences. Building a Wilson application is essentially building a library of components that can be reused as your application grows. Components are meant to be leveraged and reused by other developers so that functionality is centralized and code is not duplicated.'}}</p>
+
+                <p class="note">{{__ 'At their core, components are simply an Angularjs directive that defines a custom controller and specifies itself to be used as an element. What this means is that when we define a component, we are really creating a new type of HTML tag/element that can be used in the markup to instantiate it. Understanding components starts with understanding Anguarljs directives, you can read more'}} <a href="http://docs.angularjs.org/guide/directive">here</a>.</p>
+
+                <p class="note">{{__ 'In Wilson there are two categories of components: building-blocks and pages. Building-blocks are exactly what they sound like, components used to build pages or other building-block components. Pages are components explicitly used to represent a top-level page and they are the only components that can be used as route targets.'}}</p>
+
+                <h5>{{__ 'Creating a Component'}}</h5>
+                <p class="sub-block code">yo component</p>
+                <p class="sub-block">Creating a component is as easy as running this command and following the prompts. This process will create all necessary directories and files for a new empty component.</p>
+
+                <h5 class="sub">{{__ 'Try out Component Development Right Now in Plunker' }} <a href="http://embed.plnkr.co/abXGFGDtNRVK87b9efOe/preview" target="_blank">Try It HERE</a>!</h5>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <ht-footer></ht-footer>
+
+</div>

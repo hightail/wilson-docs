@@ -1,0 +1,198 @@
+/*************************************************
+ * HomeComponent Properties
+ ************************************************/
+$home-banner-path: $ASSET_PATH + "backgrounds/bg-springboard.jpg" !default;
+$home-banner-size: cover !default;
+
+/*************************************************
+ * HomeComponent Styles
+ ************************************************/
+.ht-home {
+
+  .hero-bar {
+    @include box-shadow(0px 0px 3px black);
+    border-bottom: 5px solid rgb(134, 51, 52);
+    background-color: black;
+  }
+
+  .hero {
+    @include grid;
+    height: 160px;
+
+    > div {
+      @include grid-row;
+      position: relative;
+      .logo {
+        @include grid-column(4);
+        @include background-base('logos/wilson-205.png');
+        margin-top: 30px;
+        height: 220px;
+        background-position: 50% 0px;
+        background-repeat: no-repeat;
+      }
+
+      .reflection {
+        @include grid-column(4);
+        @include transform(rotateX(161deg) rotateZ(93deg) rotateY(76deg) scale(1.2) skewY(-13deg));
+        @include opacity(.4);
+        @include background-base('logos/wilson-205.png');
+        background-position: 50% 0px;
+        background-repeat: no-repeat;
+        height: 300px;
+        position: absolute;
+        top: 80px; left: 70px;
+        -webkit-filter: blur(8px);
+      }
+
+      .desc {
+        @include grid-column(12);
+        font-size:  24px;
+        line-height: 32px;
+        margin-top: 35px;
+        color: white;
+      }
+
+      > a {
+        @include border-radius(3px);
+        padding: 10px;
+
+        background-color: rgba(140, 33, 32, 0.87);
+        color: white;
+
+        border: 3px solid rgb(124, 1, 1);
+
+        text-decoration: none;
+        font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
+
+        &.get-started {
+          position: absolute;
+          top: 200px; left: 450px;
+        }
+
+        &.app-seed {
+          position: absolute;
+          top: 200px; left: 630px;
+        }
+
+        &:hover, &:active {
+          background-color: rgba(140, 33, 32, 1);
+        }
+      }
+    }
+  }
+
+
+  .product-points {
+    margin-top: 130px;
+    padding-bottom: 30px;
+
+    .sections {
+      @include grid;
+
+      > div {
+        @include grid-row;
+
+        .point {
+          @include grid-column(8);
+
+          h2 {
+            font-size: 18px;
+            font-weight: 700;
+          }
+
+          p {
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+
+      }
+    }
+  }
+
+  .technologies {
+    @include grid;
+    padding-bottom: 50px;
+
+    > div {
+      @include grid-row;
+
+      h2 {
+        @include grid-column(16);
+        text-align: center;
+        padding-top: 50px;
+        margin-bottom: 0px;
+        border-top: 1px solid #e9e9e9;
+      }
+
+      .tech-logo {
+        @include grid-column(3);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        position: relative;
+        height: 80px;
+
+        &.angularjs {
+          @include grid-column(6);
+          @include background-base('logos/angularjs-logo.png');
+          height: 160px;
+
+          a {
+            @include pos-top-left(absolute, 43px, 33px);
+            @include size(273px, 76px);
+          }
+        }
+
+        &.nodejs {
+          @include grid-column(6, 2);
+          @include background-base('logos/nodejs-logo.png');
+          background-position: 50% 41%;
+          height: 160px;
+
+          a {
+            @include pos-top-left(absolute, 35px, 38px);
+            @include size(264px, 76px);
+          }
+        }
+
+        &.yeoman {
+          @include grid-column(3, 2);
+          @include background-base('logos/yeoman-logo.png');
+
+          a {
+            @include pos-top-left(absolute, 0px, 43px);
+            @include size(74px, 80px);
+          }
+        }
+
+        &.grunt {
+          @include background-base('logos/grunt-logo.png');
+
+          a {
+            @include pos-top-left(absolute, 0px, 49px);
+            @include size(62px, 80px);
+          }
+        }
+
+        &.bower {
+          @include background-base('logos/bower-logo.png');
+
+          a {
+            @include pos-top-left(absolute, 5px, 40px);
+            @include size(80px, 70px);
+          }
+        }
+
+        &.sass {
+          @include background-base('logos/sass-logo.png');
+
+          a {
+            @include pos-top-left(absolute, 0px, 26px);
+            @include size(109px, 80px);
+          }
+        }
+      }
+    }
+  }
+
+}

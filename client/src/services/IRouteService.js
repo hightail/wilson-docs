@@ -16,6 +16,8 @@ angular.wilson.service('IRouteService',
   ['$window', '$location', '$rootScope', '$route',
     function($window, $location, $rootScope, $route) {
 
+      var existingTransitionClass = '';
+
       //
       //                       o                        |    |             |
       //  ,---.,---.,---..    ,.,---.,---.    ,-.-.,---.|--- |---.,---.,---|,---.
@@ -45,6 +47,20 @@ angular.wilson.service('IRouteService',
           // If we are forwarding, cancel local routing and immediately update the location to the forwarding path
           $location.path(routeOptions.forward);
           return false;
+        }
+
+        // If our route has a transition option, then we need to apply the appropriate transition classes to the page
+        if (routeOptions.transition) {
+          var transitionClass = 'page-transition-' + routeOptions.transition;
+
+          if (existingTransitionClass !== transitionClass) {
+            $('body').removeClass(existingTransitionClass).addClass(transitionClass);
+            existingTransitionClass = transitionClass;
+          }
+        } else {
+          // Remove any previous transition classes if we do not require a new transition
+          $('body').removeClass(existingTransitionClass);
+          existingTransitionClass = '';
         }
 
         // Now update our page title if we are not going to route locally (as this step will be skipped if we don't!)

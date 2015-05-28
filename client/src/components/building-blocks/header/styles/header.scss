@@ -1,0 +1,94 @@
+/*************************************************
+ * HeaderComponent Properties
+ ************************************************/
+// Default Properties for the header component go here
+
+/*************************************************
+ * HeaderComponent Styles
+ ************************************************/
+.ht-header {
+  @include box-shadow(0px 0px 3px #3a383a);
+  @include transform(rotateX(0deg));
+  @include transition(border-bottom .15s ease-in-out);
+
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 55px;
+  z-index: 50;
+
+  background-color: white;
+  border-bottom: 0px solid #863334;
+
+  &.scroll-active {
+    border-bottom: 10px solid #863334;
+  }
+
+  .inner {
+    @include after-clearfix;
+
+    width: 940px;
+    margin: 0 auto;
+
+    > div {
+      float: left;
+
+      &.logo {
+        @include background-base('logos/wilson-85.png');
+        background-position: left center;
+        background-size: 36px;
+        height: 55px; width: 48px;
+      }
+
+      &.wilson > a {
+        font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
+        height: 55px;
+        line-height: 55px;
+        font-size: 22px;
+        color: #741C1D;
+        text-decoration: none;
+      }
+
+      &.nav-right {
+        float: right;
+
+        > a {
+          color: #350000;
+          text-decoration: none;
+          font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
+          font-size: 13px;
+          font-style: italic;
+          font-weight: 700;
+          line-height: 55px;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        text-align: left;
+        margin: 21px 0px 0px 15px;
+        padding: 0px;
+
+        font-family: 'Sonsie One', 'Verb', Verdana, sans-serif;
+        font-size: 13px;
+        font-style: italic;
+
+        li {
+          display: inline;
+          margin-left: 10px;
+          margin-right: 10px;
+
+          > a {
+            color: #350000;
+            text-decoration: none;
+            font-weight: 700;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+/**
+ * Common Content Styles
+ *
+ * Copyright(c) 2013 Hightail Inc.
+ */
+
+.clr { clear: both; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.hidden { display: none; }
+
+.invisible { visibility: hidden; }
+
+.invisible-submit {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+// Default Fonts
+// failsafes, to be overriden
+$font-primary-family:   serif !default;
+$font-secondary-family: sans-serif !default;
+

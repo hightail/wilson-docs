@@ -1,0 +1,11 @@
+<div class="ht-tip">
+  <div class="tip-container">
+    <div class="tip"
+         ng-if="stateMachine.is('Visible') || stateMachine.is('Locked')"
+         ng-class="{active: isActive}">
+      <span ng-bind-html="tipMessage">[[tipMessage | unsafeHtml]]</span>
+      <div class="arrow"></div>
+    </div>
+  </div>
+</div>
+

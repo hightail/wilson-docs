@@ -2,15 +2,59 @@
   "routes": [
     {
       "path": "/",
-      "component": "welcome",
+      "component": "home",
       "title": "Welcome to Wilson",
-      "options": {}
+      "options": {
+        "transition": "fade"
+      }
+    },
+    {
+      "path": "/about",
+      "component": "overview",
+      "title": "Wilson | About",
+      "options": {
+        "transition": "fade"
+      }
+    },
+    {
+      "path": "/get-started",
+      "component": "install",
+      "title": "Wilson | Get Started",
+      "options": {
+        "transition": "fade"
+      }
+    },
+    {
+      "path": "/docs",
+      "component": "docs",
+      "title": "Wilson | Docs",
+      "options": {
+        "transition": "fade"
+      }
+    },
+    {
+      "path": "/learn",
+      "component": "learn",
+      "title": "Wilson | Learn",
+      "options": {
+        "transition": "fade"
+      }
+    },
+    {
+      "path": "/who",
+      "component": "who",
+      "title": "Wilson | Who",
+      "options": {
+        "transition": "fade"
+      }
     },
     {
       "path": "/404",
       "component": "404",
       "title": "Wilson | Not Found",
-      "options": {}
+      "options": {
+        "transition": "fade"
+      }
     },
     {
       "path": null,
