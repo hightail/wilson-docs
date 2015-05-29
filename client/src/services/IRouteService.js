@@ -52,6 +52,7 @@ angular.wilson.service('IRouteService',
         // If our route has a transition option, then we need to apply the appropriate transition classes to the page
         if (routeOptions.transition) {
           var transitionClass = 'page-transition-' + routeOptions.transition;
+          $(document).scrollTop(0);
 
           if (existingTransitionClass !== transitionClass) {
             $('body').removeClass(existingTransitionClass).addClass(transitionClass);
