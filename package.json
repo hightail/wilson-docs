@@ -1,7 +1,7 @@
 {
   "name": "wilson-docs",
   "description": "Wilson Docs App",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "postinstall": "npm run install-bower",
     "install-bower": "bower install",
